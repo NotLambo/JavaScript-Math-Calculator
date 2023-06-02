@@ -9,109 +9,60 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
-
         <script>
             'use strict';
-
             let userInputOne;
             let userInputTwo;
-
             function methodOfOperation() {
-                const methodConfirmation = Number(prompt(`Please enter the corrosponding number for the operation you are requesting\n1 = Addition\n2 = Multiplacation\n3 = Division\n4 = Remainder\n5 = Percentage Calculator.\nEnter Here: `))
+                const methodConfirmation = Number(prompt(`Please enter the corrosponding number for the operation you are requesting\n1 = Addition\n2 = Multiplacation\n3 = Division\n4 = Remainder\n5 = Percentage Calculator.\nEnter Here: `));
+                const _promptOne = Number(prompt(`Please enter the first number for the math equation: `));
+                const _promptTwo = Number(prompt(`Please enter the first number for the math equation: `));
                 switch(methodConfirmation) {
                     case 1:
-                        addtionMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
+                        additionMath(_promptOne, _promptTwo)
                         break;
                     case 2:
-                        MultiplacationMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
+                        multiplacationMath(_promptOne, _promptTwo)
                         break;
                     case 3:
-                        DivisionMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
+                        divisionMath(_promptOne, _promptTwo)
                         break;
                     case 4:
-                        RemainderMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
+                        remainderMath(_promptOne, _promptTwo)
                         break;
                     case 5:
-                        PercentageOperation(userInputOne = Number(prompt(`Enter the number you want to find out the % of (for example 5 is what out of 20%): `)), userInputTwo = Number(prompt(`Please enter the second number that is the whole percentage of the first number (for example 20% is the total): `)));
+                        percentageMath(_promptOne, _promptTwo)
                         break;
                     default:
                         console.log(`ERROR - number is not defined.`)
                 }
-            }
-
-            function addtionMath(userInputOne, userInputTwo) {
-                const addtionOperation = userInputOne + userInputTwo;
-                window.alert(`The equation of the requested Addtional numbers is ${addtionOperation}.`)
-                const userLoop = String(prompt(`Would you like to redo the Addtional Operation with new numbers? Y/N: `));
-                switch(userLoop){
+                const userLoop =  String(prompt(`Would you like too use the calculator again? Y/N: `))
+                switch(userLoop) {
                     case 'Y':
-                        addtionMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)))
+                        methodOfOperation()
                         break;
                     case 'N':
-                        const newOperationConfirmation = String(prompt(`Would you like too choose a different method of operation? Y/N: `));
-                        newOperationConfirmation === 'Y' ? methodOfOperation() : window.alert(`Thanks for using this calculator! `);
-                }
-            }
-
-            function MultiplacationMath(userInputOne, userInputTwo) {
-                const multiplacationMathOperation = userInputOne * userInputTwo;
-                window.alert(`The equation of the requested Multiplacation numbers is ${multiplacationMathOperation}.`)
-                const userLoop = String(prompt(`Would you like to redo the Multiplacational Operation with new numbers? Y/N: `));
-                switch(userLoop){
-                    case 'Y':
-                        MultiplacationMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
+                        window.alert(`Thanks for using my calculator :D`);
                         break;
-                    case 'N':
-                        const newOperationConfirmation = String(prompt(`Would you like too choose a different method of operation? Y/N: `));
-                        newOperationConfirmation === 'Y' ? methodOfOperation() : newOperationConfirmation === 'N' ? window.alert(`Thanks for using this calculator! `) : console.log(`error`);
                 }
             }
-
-            function DivisionMath(userInputOne, userInputTwo) {
-                const divisionMathOperation = userInputOne / userInputTwo;
-                window.alert(`The equation of the requested Division numbers is ${divisionMathOperation}.`)
-                const userLoop = String(prompt(`Would you like to redo the Division Operation with new numbers? Y/N: `));
-                switch(userLoop){
-                    case 'Y':
-                        DivisionMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
-                        break;
-                    case 'N':
-                        const newOperationConfirmation = String(prompt(`Would you like too choose a different method of operation? Y/N: `));
-                        newOperationConfirmation === 'Y' ? methodOfOperation() : newOperationConfirmation === 'N' ? window.alert(`Thanks for using this calculator! `) : console.log(`error`);
-                }
+            function additionMath(promptOne, promptTwo) {
+                window.alert(`Your equation has been calculated, the awnser is: ${promptOne + promptTwo}`);
             }
-
-            function RemainderMath(userInputOne, userInputTwo) {
-                const remainderMathOperation = userInputOne % userInputTwo;
-                window.alert(`The equation of the requested Remainder Division numbers is ${remainderMathOperation}.`)
-                const userLoop = String(prompt(`Would you like to redo the Remainder Division Operation with new numbers? Y/N: `));
-                switch(userLoop){
-                    case 'Y':
-                        RemainderMath(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
-                        break;
-                    case 'N':
-                        const newOperationConfirmation = String(prompt(`Would you like too choose a different method of operation? Y/N: `));
-                        newOperationConfirmation === 'Y' ? methodOfOperation() : newOperationConfirmation === 'N' ? window.alert(`Thanks for using this calculator! `) : console.log(`error`);
-                }
+            function multiplacationMath(promptOne, promptTwo) {
+                window.alert(`Your equation has been calculated, the awnser is: ${promptOne * promptTwo}`);
             }
-
-            function PercentageOperation(userInputOne, userInputTwo) {
-                const percentageOperationOperation = userInputOne * 100 / userInputTwo;
-                window.alert(`The equation of the requested number of ? precentage is ${percentageOperationOperation}.`)
-                const userLoop = String(prompt(`Would you like to redo the Percentage Operation with new numbers? Y/N: `));
-                switch(userLoop){
-                    case 'Y':
-                        PercentageOperation(userInputOne = Number(prompt(`Please enter the first number for the operation: `)), userInputTwo = Number(prompt(`Please enter the second number for the operation: `)));
-                        break;
-                    case 'N':
-                        const newOperationConfirmation = String(prompt(`Would you like too choose a different method of operation? Y/N: `));
-                        newOperationConfirmation === 'Y' ? methodOfOperation() : newOperationConfirmation === 'N' ? window.alert(`Thanks for using this calculator! `) : console.log(`error`);
-                }
+            function divisionMath(promptOne, promptTwo) {
+                window.alert(`Your equation has been calculated, the awnser is: ${promptOne / promptTwo}`);
             }
-
-            methodOfOperation()
+            function remainderMath(promptOne, promptTwo) {
+                window.alert(`Your equation has been calculated, the awnser is: ${promptOne % promptTwo}`);
+            }
+            function percentageMath(promptOne, promptTwo) {
+                window.alert(`Your equation has been calculated, the awnser is: ${(promptOne * 100) / promptTwo}`);
+            }
+            methodOfOperation();
         </script>
-
         <style>
             :root {
                 background-color: #080202;
@@ -130,15 +81,11 @@
                 cursor: help;
             }
         </style>
-
     </head>
     <body>
         <h1>Thanks for viewing!</h1>
     </body>
 </html>
-
 <!--
-
     thanks for viewing (if anyone does :D)
-
 -->
